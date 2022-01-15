@@ -18,11 +18,13 @@ function startGen() {
   var generatedText = genLink(inputVal);
 
   if (document.getElementById("phoneInput").value == "") {
-    // Ensure #generated-link is hidden
-    // and show error if #phone-input is empty.
+    // Ensure #generated-link is hidden,
+    // show error if #phone-input is empty,
+    // and disable copy button
     document.getElementById("generated-link").style.display = "none";
     document.getElementById("alert-box").innerHTML = "Error: No phone number inputted!";
     document.getElementById("error-box").style.display = "block";
+    document.getElementById("copyButton").setAttribute("disabled", "");
   } else {
     // Ensure #error-box is hidden,
     // show generated link and enable copy button
