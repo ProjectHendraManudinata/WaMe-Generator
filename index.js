@@ -24,10 +24,21 @@ function startGen() {
     document.getElementById("alert-box").innerHTML = "Error: No phone number inputted!";
     document.getElementById("error-box").style.display = "block";
   } else {
-    // Ensure #error-box is hidden
-    // and show generated link
+    // Ensure #error-box is hidden,
+    // show generated link and enable copy button
     document.getElementById("error-box").style.display = "none";
     document.getElementById("generatedLinkBox").value = generatedText;
     document.getElementById("generated-link").style.display = "block";
+    document.getElementById("copyButton").removeAttribute("disabled");
   }
+}
+
+function copyLink() {
+  var linkBox = document.getElementById("generatedLinkBox");
+
+  linkBox.select();
+  linkBox.setSelectionRange(0, 99999); // For mobile devices
+  navigator.clipboard.writeText(linkBox.value);
+
+  alert("Link copied!");
 }
